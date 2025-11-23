@@ -82,9 +82,7 @@ public:
         cout << "Net: " << CalcNet() << endl;
     }
 
-    // --- Перевантажені оператори ---
-
-    // Оператор +
+    // РћРїРµСЂР°С‚РѕСЂ +
     Payment operator+(const Payment& other) const {
         Payment temp = *this;
         temp.accrued = this->accrued + other.accrued;
@@ -92,17 +90,17 @@ public:
         return temp;
     }
 
-    // Оператор >
+    // РћРїРµСЂР°С‚РѕСЂ >
     bool operator>(const Payment& other) const {
         return this->CalcNet() > other.CalcNet();
     }
 
-    // Оператор ==
+    // РћРїРµСЂР°С‚РѕСЂ ==
     bool operator==(const Payment& other) const {
         return this->salary == other.salary;
     }
 
-    // Оператор <<
+    // РћРїРµСЂР°С‚РѕСЂ <<
     friend ostream& operator<<(ostream& out, const Payment& p) {
         out << p.lname << " " << p.fname << " " << p.mname
             << "\nAccrued: " << p.accrued
@@ -135,3 +133,4 @@ int main() {
 
     return 0;
 }
+
