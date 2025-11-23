@@ -16,7 +16,6 @@ private:
     int currentYear;
 
 public:
-    // ініціалізація
     void Init(string ln, string fn, string mn, double s, int y, double b, int wd, int td, int curY) {
         lname = ln;
         fname = fn;
@@ -32,7 +31,6 @@ public:
         withheld = 0;
     }
 
-    // введення з клавіатури
     void Read() {
         cout << "Enter last name: ";
         cin >> lname;
@@ -60,37 +58,37 @@ public:
     }
 
     void CalcAccrued() {
-        double perDay = salary / totalDays;  // скільки платять за один день
-        double base = perDay * workDays;     // зарплата за відпрацьовані дні
-        double bonusSum = base * bonus / 100; // надбавка (відсотках)
-        accrued = base + bonusSum;           // підсумкова нарахована сума
+        double perDay = salary / totalDays; 
+        double base = perDay * workDays;    
+        double bonusSum = base * bonus / 100; 
+        accrued = base + bonusSum;           
     }
 
     void CalcWithheld() {
-        double pension = accrued * 0.01;          // 1% у пенсійний фонд
-        double incomeTax = (accrued - pension) * tax / 100; // податок 13%
-        withheld = pension + incomeTax;           // загальна сума утримань
+        double pension = accrued * 0.01;          
+        double incomeTax = (accrued - pension) * tax / 100;
+        withheld = pension + incomeTax;           
     }
 
 
     double CalcNet() {
-        return accrued - withheld; // скільки працівник отримає після утримань
+        return accrued - withheld;
     }
 
     void Display() {
-        cout << "\nEmployee: " << lname << " " << fname << " " << mname << endl; // ПІБ
-        cout << "Experience: " << Experience() << " years" << endl;               // стаж
-        cout << "Accrued: " << accrued << endl;                                   // нараховано
-        cout << "Withheld: " << withheld << endl;                                 // утримано
-        cout << "Net: " << CalcNet() << endl;                                     // на руки
+        cout << "\nEmployee: " << lname << " " << fname << " " << mname << endl;
+        cout << "Experience: " << Experience() << " years" << endl;           
+        cout << "Accrued: " << accrued << endl;                                
+        cout << "Withheld: " << withheld << endl;                               
+        cout << "Net: " << CalcNet() << endl;                                     
     }
 };
 
 int main() {
-    Payment p;                // створюємо об’єкт класу Payment
-    p.Read();                 // викликаємо метод введення даних
-    p.CalcAccrued();          // обчислюємо нараховану суму
-    p.CalcWithheld();         // обчислюємо утримання
-    p.Display();              // виводимо всі результати
-    return 0;                 // завершуємо програму
+    Payment p;                // СЃС‚РІРѕСЂСЋС”РјРѕ РѕР±вЂ™С”РєС‚ РєР»Р°СЃСѓ Payment
+    p.Read();                 // РІРёРєР»РёРєР°С”РјРѕ РјРµС‚РѕРґ РІРІРµРґРµРЅРЅСЏ РґР°РЅРёС…
+    p.CalcAccrued();          // РѕР±С‡РёСЃР»СЋС”РјРѕ РЅР°СЂР°С…РѕРІР°РЅСѓ СЃСѓРјСѓ
+    p.CalcWithheld();         // РѕР±С‡РёСЃР»СЋС”РјРѕ СѓС‚СЂРёРјР°РЅРЅСЏ
+    p.Display();              // РІРёРІРѕРґРёРјРѕ РІСЃС– СЂРµР·СѓР»СЊС‚Р°С‚Рё
+    return 0;                 // Р·Р°РІРµСЂС€СѓС”РјРѕ РїСЂРѕРіСЂР°РјСѓ
 }
